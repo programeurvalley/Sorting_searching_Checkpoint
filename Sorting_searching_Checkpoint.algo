@@ -1,21 +1,24 @@
 ALGORITHM Insertion_sort_algorithem
 VAR
     arr : ARRAY_OF INTEGER[200];
-    len , i , j , c : INTEGER;
+    len , i , j , key : INTEGER;
 BEGIN
     Write("Entre teh length of your array : ");
     Read(len);
 
-    FOR i FROM 1 TO len STEP 1  DO
-        FOR j FROM 1 TO 0 STEP -1  DO
-            IF (conditon) THEN
-                c = arr[j];
-                arr[j] = arr[j-1];
-                arr[j-1] = c;
-            ELSE
-                BREAK;
-            END_IF
-        END_FOR
+    FOR i FROM 0 TO len STEP 1  DO
+        Write("Entre the ", i ," value :");
+        Read(arr[i]);
+    END_FOR
+
+    FOR i FROM 1 TO len STEP 1 DO
+        j := i -1;
+        key := arr[i];
+        WHILE (j >= 0 AND arr[j] > key) DO
+            arr[j + 1] := arr[j];
+            j := j -1;
+        END_WHILE
+        arr[j + 1] := key;
     END_FOR
 
     FOR i FROM 0 TO len STEP 1  DO
